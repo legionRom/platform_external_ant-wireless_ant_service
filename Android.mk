@@ -34,7 +34,9 @@ LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 LOCAL_CERTIFICATE := platform
 LOCAL_MODULE_TAGS := optional
 LOCAL_PACKAGE_NAME := AntHalService
-
+ifeq ($(filter 8% O% o%,$(TARGET_PLATFORM_VERSION)),)
+LOCAL_SDK_VERSION := system_current
+endif
 include $(BUILD_PACKAGE)
 
 endif # BOARD_ANT_WIRELESS_DEVICE defined
